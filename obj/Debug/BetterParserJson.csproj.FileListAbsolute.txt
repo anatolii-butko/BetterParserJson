@@ -1,0 +1,10 @@
+C:\Users\anatolii.butko\source\repos\BetterParserJson\bin\Debug\BetterParserJson.exe.config
+C:\Users\anatolii.butko\source\repos\BetterParserJson\bin\Debug\BetterParserJson.exe
+C:\Users\anatolii.butko\source\repos\BetterParserJson\bin\Debug\BetterParserJson.pdb
+C:\Users\anatolii.butko\source\repos\BetterParserJson\bin\Debug\Newtonsoft.Json.dll
+C:\Users\anatolii.butko\source\repos\BetterParserJson\bin\Debug\Newtonsoft.Json.xml
+C:\Users\anatolii.butko\source\repos\BetterParserJson\obj\Debug\BetterParserJson.csproj.AssemblyReference.cache
+C:\Users\anatolii.butko\source\repos\BetterParserJson\obj\Debug\BetterParserJson.csproj.CoreCompileInputs.cache
+C:\Users\anatolii.butko\source\repos\BetterParserJson\obj\Debug\BetterParserJson.csproj.CopyComplete
+C:\Users\anatolii.butko\source\repos\BetterParserJson\obj\Debug\BetterParserJson.exe
+C:\Users\anatolii.butko\source\repos\BetterParserJson\obj\Debug\BetterParserJson.pdb
