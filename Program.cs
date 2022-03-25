@@ -1,11 +1,5 @@
 ﻿namespace BetterParserJson
 {
-    #region Using
-
-    using ParserJsonBetterParserJson;
-
-    #endregion
-
     /// <summary>
     /// Program driver.
     /// </summary>

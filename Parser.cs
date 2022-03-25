@@ -1,4 +1,4 @@
-﻿namespace ParserJsonBetterParserJson
+﻿namespace BetterParserJson
 {
 
     #region Using
@@ -7,7 +7,6 @@
     using System.IO;
     using Newtonsoft.Json;
     using System.Linq;
-    using BetterParserJson;
 
     #endregion
 
@@ -71,8 +70,11 @@
                 Elements[6] = new string[data.ComponentInterconnectId.Count];
                 for (int m = 0; m < data.ComponentInterconnectId.Count; m++) Elements[6][m] = data.ComponentInterconnectId.Keys.ToArray()[m] + " : " + data.ComponentInterconnectId.Values.ToArray()[m];
 
+                string check;
+                
+                
                 Console.WriteLine("Enter the data you want to find in the .json file: ");
-                string check = Console.ReadLine();
+                check = Console.ReadLine();
                 while (check == null)
                 {
                     Console.WriteLine("Data dont found or incorect! Please try again.");
