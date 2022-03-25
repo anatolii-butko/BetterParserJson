@@ -32,9 +32,8 @@
                 path = Console.ReadLine();
             }
             string json = File.ReadAllText(path);
-            while (path != null)
+            while (json != null)
             {
-                string output = "";
                 DataJson data = JsonConvert.DeserializeObject<DataJson>(json);
                 // Create an array of arrays to store the data of the .json file.
                 string[][] Elements = new string[7][];
@@ -70,39 +69,25 @@
                 Elements[6] = new string[data.ComponentInterconnectId.Count];
                 for (int m = 0; m < data.ComponentInterconnectId.Count; m++) Elements[6][m] = data.ComponentInterconnectId.Keys.ToArray()[m] + " : " + data.ComponentInterconnectId.Values.ToArray()[m];
 
-                string check;
-                
-                
                 Console.WriteLine("Enter the data you want to find in the .json file: ");
-                check = Console.ReadLine();
-                while (check == null)
+                string check = Console.ReadLine();
+                while (!Elements[0].Contains(check))
                 {
                     Console.WriteLine("Data dont found or incorect! Please try again.");
                     Console.WriteLine("Enter the data you want to find in the .json file: ");
                     check = Console.ReadLine();
                 }
                 // Search in the array of entered data.
-                
-                for (int q = 0; q < Elements[0].Length; q++)
-                {
-                    if (Elements[0][q] == check)
-                    {
-                        output = Elements[0][q] + " : ";
-                        foreach (string elem in Elements[q + 1]) output += "\n\t" + elem;
-                        break;
-                    }
-                }
-                if( output.Length <1) output = "Incorrect data! Please check your input and try again.";
-                Console.WriteLine(output);
-
+                string output = Elements[0][Array.IndexOf(Elements[0], check)] + " : ";
+                foreach (string elem in Elements[Array.IndexOf(Elements[0], check) + 1]) output += "\n\t" + elem;
+                Console.WriteLine("\n" + output);
                 Console.WriteLine("You can change TIMEOUT value typing a new value. If you do not want to change, press Enter. Value by default 20480.");
                 string newTimeout = Console.ReadLine();
-
                 if (newTimeout != null && newTimeout != "") data.MediaInterfaceSettings["Hardware Timeout"]["TIMEOUT"] = newTimeout;
                 string newjson = JsonConvert.SerializeObject(data, Formatting.Indented);
                 Console.WriteLine("New json file after serialization: ");
                 Console.WriteLine(newjson);
-                Console.WriteLine("Enter the the full path to the new .json file where you want to save it.\nIf file exist it will be override. If if there are no folders in this path, they will be created.\nIf you do not enter anything, the file is saved in the root folder C:\\ by default as newjson.json.");
+                Console.WriteLine("Enter the the full path to the new .json file where you want to save it.\nIf file exist it will be override. If there are no folders in this path, they will be created.\nIf you do not enter anything, the file is saved in the root folder C:\\ by default as newjson.json.");
                 string pathForNewJson = Console.ReadLine();
                 if (pathForNewJson == null || pathForNewJson == "") pathForNewJson = @"C:\\newjson.json"; // Path by default.
                 string msg;
@@ -116,10 +101,9 @@
                 else msg = "Existed .json file overrided";
                 File.WriteAllText(pathForNewJson, newjson);
                 Console.WriteLine($"{msg} by path: {pathForNewJson}");
-                Console.WriteLine("The program will run again. If you do not want to, enter exit or close.\nOther options will be perceived as an agreement.");
+                Console.WriteLine("The program will run again. If you do not want, enter exit or close.\nOther options will be perceived as an agreement.");
                 string responce = Console.ReadLine();
                 if (responce == "close" || responce == "exit") break;
-
             }
         }
 
